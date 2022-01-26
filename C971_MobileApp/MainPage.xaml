@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971_MobileApp.MainPage"
+             
+             Title="Term Page">
+
+    <StackLayout Margin="10">
+        <!-- Header -->
+        <FlexLayout JustifyContent="SpaceBetween"
+                    AlignItems="Center"
+                    Padding="15, 5">
+            <Label Text="X"/>
+            <ImageButton Source="Delete_Icon.png"/>
+
+        </FlexLayout>
+    
+        <!-- Tabs -->
+        <FlexLayout BackgroundColor="LightGray">
+            <Button Text="Add Term"
+                    FontSize="15"
+                    BackgroundColor="LightGray"/>
+        </FlexLayout>
+        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
+        
+        <!-- Data entry -->
+        <StackLayout>
+            <Entry Placeholder="Term Name"/>
+            <DatePicker/>
+        </StackLayout>
+        
+        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
+        
+        <FlexLayout HorizontalOptions="End"
+                    WidthRequest="75"
+                    JustifyContent="SpaceEvenly">
+            <ImageButton Source="Add_Icon.png" Clicked="NewCourseHandler"/>
+            <ImageButton Source="Edit_Icon.png"/>
+            <ImageButton Source="Delete_Icon.png"/>
+        </FlexLayout>
+
+        <!-- Course box Template -->
+        <StackLayout BackgroundColor="Lightgray">
+            <FlexLayout JustifyContent="SpaceBetween" 
+                        Padding="5,3">
+                <Label Text="D191 Advanced Data Management"
+                       FontSize="Large"
+                       LineBreakMode="WordWrap"
+                       WidthRequest="300"/>                
+                <CheckBox/>
+            </FlexLayout>            
+            <Label Text="Enrolled"
+                   VerticalOptions="Center"
+                   HorizontalOptions="End"
+                   Padding="5,0"/>
+
+            <Label Text="Jan 24 - Mar 31"
+                   Padding="5,0"/>
+        </StackLayout>
+  
+    </StackLayout>
+</ContentPage>

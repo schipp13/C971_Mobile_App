@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971_MobileApp.AssessmentPage_Editor"
+             Title="Assessment Page Editor">
+
+    <StackLayout Margin="10">
+        <FlexLayout JustifyContent="SpaceBetween"
+                    Padding="10,0">
+            <Label Text="X"/>
+            <Button Text="Save"
+                    WidthRequest="75"
+                    HeightRequest="40"/>
+        </FlexLayout>
+
+        <Frame BorderColor="Black">
+            <Label Text="Course Name"
+                   FontSize="Large"
+                   HorizontalOptions="Start"/>
+        </Frame>
+        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
+        <StackLayout>
+           
+                 <FlexLayout JustifyContent="End"
+                             Padding="15,0">
+                     <ImageButton Source="Add_Icon.png"
+                                 Margin="15,0"/>
+                     <ImageButton Source="Delete_Icon.png"/>
+                </FlexLayout>
+          
+        </StackLayout>
+
+
+        <Frame BorderColor="Black">
+            <StackLayout>
+                <CheckBox HorizontalOptions="End"/>
+                    <Picker/>
+                        <Entry Text="Assessment Name"/>
+                            <FlexLayout JustifyContent="SpaceEvenly">
+                                <DatePicker />
+                                <DatePicker />
+                            </FlexLayout>
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
+            </StackLayout>
+        </Frame>
+
+
+    </StackLayout>
+</ContentPage>
