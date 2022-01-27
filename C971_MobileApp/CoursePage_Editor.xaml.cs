@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,7 +12,7 @@ namespace C971_MobileApp
             InitializeComponent();
         }
 
-        private async void OpenAssessmentsPage_Editor(Object sender, EventArgs e)
+        async void OpenAssessmentsPage_Editor(Object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AssessmentPage_Editor());
         }

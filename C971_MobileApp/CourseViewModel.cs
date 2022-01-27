@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -12,18 +13,20 @@ namespace C971_MobileApp
         public CourseViewModel()
         {
             CourseItems = new ObservableCollection<Test>();
-
         }
 
         public ICommand AddCourseCommand => new Command(AddCourse);
-
+       
         // Create new course
        // public string NewCourseName { get; set; }
 
         void AddCourse()
         {
             //TODO: Add the courses to the list here
-        }
+            CourseItems.Add(new Test("This is a test"));
+            
+        } 
+        
 
         public ICommand RemoveCourseCommand => new Command(RemoveCourse);
         void RemoveCourse(Object o)

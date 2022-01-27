@@ -19,7 +19,6 @@
         
         <Entry
 	           x:Name="CourseNameField"
-	           Text="{Binding NewCourseName}"
 	           Placeholder="Course Name"/>
         
         <FlexLayout JustifyContent="SpaceEvenly">

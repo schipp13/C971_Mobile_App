@@ -1,22 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"   
              xmlns:local="clr-namespace:C971_MobileApp"
              x:Class="C971_MobileApp.AssessmentPage_Editor"
              Title="Assessment Editor">
 
-    
-    <ContentPage.BindingContext>
-        <local:CourseViewModel/>
-    </ContentPage.BindingContext>
-
+    <!-- Add another command? -->
     <StackLayout Margin="10">
         <Button Text="Save"
                 WidthRequest="75"
                 HeightRequest="40"
-                HorizontalOptions="End"/>
-        <!-- TODO: How to add items? -->
+                HorizontalOptions="End"             
+                Command="{Binding NavigateCommand}"
+                CommandParameter="{x:Type local:MainPage}"/>
         
+        <!-- TODO: How to add items? -->      
         
             
         <Frame BorderColor="Black">
