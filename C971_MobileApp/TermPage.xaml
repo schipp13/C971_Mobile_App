@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:C971_MobileApp"
+             x:Class="App1.TermPage">
+
+    <ContentPage.BindingContext>
+        <local:CourseViewModel/>
+    </ContentPage.BindingContext>
+    
+    <StackLayout>
+      <!-- header -->
+        <ImageButton Source="Edit_Icon.png"
+                     HorizontalOptions="End"
+        />
+        
+        <!-- Tabs -->
+        <!-- Button will load the correct course information for each term -->
+        <!-- Add a horizontal scroll list for the tabs to keep being added -->
+        <FlexLayout JustifyContent="SpaceEvenly"
+                    AlignItems="Center">
+            <Button x:Name="Term Tabs"
+                    Text="{Binding Term.TermName}"
+                    Clicked="LoadLayout"
+            />        
+        </FlexLayout>
+
+        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
+        
+        <StackLayout BackgroundColor="LightGray">
+            <Label x:Name="Term Name"
+                   Text="{Binding Term.TermName}"
+                   FontSize="Large"
+            />
+            <Label x:Name="Term Date"
+                   Text="{Binding Term.TermDate}"
+                   FontSize="Medium"
+            />
+            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
+            
+            <!-- Scroll view for courses -->
+            <!-- Create the layout needed for the course in the view cell-->
+            <ScrollView>
+                <StackLayout>
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                     <Label x:Name="Course Name"
+                                            Text="{Binding Course.courseName}"
+                                            FontSize="Large"
+                                            HorizontalOptions="Start"
+                                            VerticalOptions="Start"
+                                     />
+                                     <Label x:Name="Course Status" 
+                                            Text="{Binding Course.courseStatus}"
+                                            FontSize="Small"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Center"
+                                     />
+                                     <Label x:Name="Course Date"
+                                            Text="{Binding Course.courseDate}"
+                                            FontSize="Small"
+                                            HorizontalOptions="Start"
+                                            VerticalOptions="End"
+                                     />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+            
+        </StackLayout>        
+
+    </StackLayout>
+   
+</ContentPage>

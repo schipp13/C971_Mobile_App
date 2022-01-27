@@ -5,20 +5,22 @@
              x:Class="C971_MobileApp.AssessmentPage_Editor"
              Title="Assessment Editor">
 
+    <ContentPage.BindingContext>
+        <local:CourseViewModel/>
+    </ContentPage.BindingContext>
+
     <!-- Add another command? -->
     <StackLayout Margin="10">
         <Button Text="Save"
                 WidthRequest="75"
                 HeightRequest="40"
                 HorizontalOptions="End"             
-                Command="{Binding NavigateCommand}"
-                CommandParameter="{x:Type local:MainPage}"/>
+                Command="{Binding SaveCourse}"/>
         
         <!-- TODO: How to add items? -->      
-        
             
         <Frame BorderColor="Black">
-            <Label Text="Course Name"
+            <Label Text="{Binding Course.courseName}"
                    FontSize="Large"
                    HorizontalOptions="Start"/>
         </Frame>
@@ -28,20 +30,26 @@
             <FlexLayout JustifyContent="End"
                              Padding="15,0">
                 <ImageButton Source="Add_Icon.png"
-                                 Margin="15,0"/>
+                             Margin="15,0"
+                             Command="AddAssessmentCommand"/> <!-- Creates a new assessment-->
                 <ImageButton Source="Delete_Icon.png"/>
             </FlexLayout>
 
         </StackLayout>
-
+    <!-- Change test to assessments object -->
         <Frame BorderColor="Black">
             <StackLayout>
                 <CheckBox HorizontalOptions="End"/>
-                <Picker/>
-                <Entry Text="Assessment Name"/>
+                <Picker SelectedItem="{Binding Test.assessment_type}"/>
+                <Entry x:Name="AssessmentName" Text="{Binding Test.assessment_name}"
+                       Placeholder="Assessment Name"/>
                 <FlexLayout JustifyContent="SpaceEvenly">
-                    <DatePicker />
-                    <DatePicker />
+                    <DatePicker x:Name="AssessmentStart"
+                                Date="{Binding Test.assessment_start}"
+                    />
+                    <DatePicker x:Name="AssessmentEnd"
+                                Date="{Binding Test.assessment_end}"
+                    />
                 </FlexLayout>
                 <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
             </StackLayout>

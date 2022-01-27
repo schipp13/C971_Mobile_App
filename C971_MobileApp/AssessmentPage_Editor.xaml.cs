@@ -17,8 +17,7 @@ namespace C971_MobileApp
             NavigateCommand = new Command<Type>(async (Type pageType) =>
             {
                 Page page = (Page)Activator.CreateInstance(pageType);
-               // How to add the courses to the list here?
-              
+                             
                 await Navigation.PushAsync(page);
             });
 

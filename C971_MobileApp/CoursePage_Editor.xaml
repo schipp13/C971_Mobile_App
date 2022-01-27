@@ -9,42 +9,68 @@
         <local:CourseViewModel/>
     </ContentPage.BindingContext> 
     
+    <!-- Command to be able to add values into course class -->
     <StackLayout Margin="10">
-
-        <Button Text="Next"
+        <Button x:Name="NextButton"
+                Text="Next"
                 WidthRequest="75"
                 HeightRequest="40"
                 HorizontalOptions="End"
-                Clicked="OpenAssessmentsPage_Editor"/>
+                Command="AddCourseCommand"
+        />
         
-        <Entry
-	           x:Name="CourseNameField"
-	           Placeholder="Course Name"/>
+        <Entry x:Name="CourseNameField"
+               Text="{Binding Course.courseName}"
+	           Placeholder="Course Name"
+        />
         
         <FlexLayout JustifyContent="SpaceEvenly">
-            <DatePicker />
-            <DatePicker/>
+            <DatePicker x:Name="DateStart"
+                        Date="{Binding Course.courseStartDate}"
+            />
+            <DatePicker x:Name="DateEnd"
+                        Date="{Binding Course.courseEndDate}"
+            />
         </FlexLayout>        
-            <Picker />
-        
+            <Picker x:Name="CourseStatus"
+                    ItemsSource="{Binding Course.courseStatus}"
+            />        
         <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>        
-                <Entry Placeholder="Course Instructor Name"/>
-                <Entry Placeholder="johndoe@email.com"/>
-                <Entry Placeholder="555-555-5555"/>
+                <Entry x:Name="CourseInstructorName" 
+                       Text="{}"
+                       Placeholder="Course Instructor Name"
+                />
+                <Entry x:Name="CourseInstructorEmail"
+                       Text="{}"
+                       Placeholder="johndoe@email.com"
+                />
+                <Entry x:Name="CourseInstructorPhone"
+                       Text="{}"
+                       Placeholder="555-555-5555"
+                />
                     <Frame BorderColor="Black">
-                        <Editor Placeholder="Course Description"/>
+                        <Editor x:Name="CourseDescription"
+                                Text="{Binding Course.courseDescription}"
+                                Placeholder="Course Description"
+                        />
                     </Frame>
         
         <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
         
         <StackLayout>
-            <ImageButton Source="Add_Icon.png"
-                         HorizontalOptions="End"/>
+            <ImageButton x:Name="AddNotes"
+                         Source="Add_Icon.png"
+                         HorizontalOptions="End"
+            />
             <Frame BorderColor="Black">
-                <Editor Placeholder="Additional Notes"/>
+                <Editor x:Name="NotesDescription" 
+                        Text="{Binding Course.courseNotes}"
+                        Placeholder="Additional Notes"
+                />
             </Frame>
-                <Button Text="Share"
-                            HorizontalOptions="End"/>
+                <Button x:Name="ShareButton"
+                        Text="Share"
+                        HorizontalOptions="End"/>
         </StackLayout>
 
     </StackLayout>
