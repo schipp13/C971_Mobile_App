@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:C971_MobileApp"
+             x:Class="C971_MobileApp.MainPage"
+             Title="Term Editor">
+
+    <ContentPage.BindingContext>
+        <local:CourseViewModel/>
+    </ContentPage.BindingContext>
+
+        
+        <StackLayout Margin="10">
+            <!-- Header -->
+            <ImageButton Source="Delete_Icon.png"
+                         HorizontalOptions="End"/>
+            
+            <!-- Tabs -->
+            <FlexLayout BackgroundColor="LightGray">
+                <Button Text="Add Term"
+                    FontSize="15"
+                    BackgroundColor="LightGray"/>
+            </FlexLayout>            
+            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
+            
+            <!-- Data entry -->
+            <StackLayout>
+                <Entry Placeholder="Term Name"/>
+                <DatePicker />
+            </StackLayout>
+            
+            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
+            
+            <FlexLayout HorizontalOptions="End"
+                    WidthRequest="75"
+                    JustifyContent="SpaceEvenly">
+                <ImageButton Source="Add_Icon.png" Clicked="NewCourseHandler"/> <!-- Creates a new class-->
+                
+                <ImageButton Source="Edit_Icon.png"/>
+                <ImageButton Source="Delete_Icon.png"
+	                         Command="{Binding Path=BindingContext.RemoveCourseCommand, Source={x:Reference CourseItems}}"
+	                         CommandParameter="{Binding .}"
+                />
+            </FlexLayout>
+
+            <!-- This is not being displayed on the app -->
+            <!-- Might have to have list be populated upon page init. -->
+                <ListView x:Name="CourseItems" ItemsSource="{Binding CourseItems}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                        <ViewCell>
+                            <Label BackgroundColor="Red" Text="{Binding testString}"/>
+                        </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                      
+            
+        </StackLayout>
+ 
+    
+</ContentPage>
+
+
+
