@@ -1,18 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:C971_MobileApp"
              x:Class="C971_MobileApp.AssessmentPage_Editor"
-             Title="Assessment Page Editor">
+             Title="Assessment Editor">
+
+    
+    <ContentPage.BindingContext>
+        <local:CourseViewModel/>
+    </ContentPage.BindingContext>
 
     <StackLayout Margin="10">
-        <FlexLayout JustifyContent="SpaceBetween"
-                    Padding="10,0">
-            <Label Text="X"/>
-            <Button Text="Save"
-                    WidthRequest="75"
-                    HeightRequest="40"/>
-        </FlexLayout>
-
+        <Button Text="Save"
+                WidthRequest="75"
+                HeightRequest="40"
+                HorizontalOptions="End"/>
+        <!-- TODO: How to add items? -->
+        
+        
+            
         <Frame BorderColor="Black">
             <Label Text="Course Name"
                    FontSize="Large"
@@ -20,30 +26,28 @@
         </Frame>
         <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
         <StackLayout>
-           
-                 <FlexLayout JustifyContent="End"
-                             Padding="15,0">
-                     <ImageButton Source="Add_Icon.png"
-                                 Margin="15,0"/>
-                     <ImageButton Source="Delete_Icon.png"/>
-                </FlexLayout>
-          
-        </StackLayout>
 
+            <FlexLayout JustifyContent="End"
+                             Padding="15,0">
+                <ImageButton Source="Add_Icon.png"
+                                 Margin="15,0"/>
+                <ImageButton Source="Delete_Icon.png"/>
+            </FlexLayout>
+
+        </StackLayout>
 
         <Frame BorderColor="Black">
             <StackLayout>
                 <CheckBox HorizontalOptions="End"/>
-                    <Picker/>
-                        <Entry Text="Assessment Name"/>
-                            <FlexLayout JustifyContent="SpaceEvenly">
-                                <DatePicker />
-                                <DatePicker />
-                            </FlexLayout>
+                <Picker/>
+                <Entry Text="Assessment Name"/>
+                <FlexLayout JustifyContent="SpaceEvenly">
+                    <DatePicker />
+                    <DatePicker />
+                </FlexLayout>
                 <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
             </StackLayout>
         </Frame>
-
 
     </StackLayout>
 </ContentPage>

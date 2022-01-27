@@ -1,6 +1,4 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 
 namespace C971_MobileApp
 {
@@ -10,7 +8,7 @@ namespace C971_MobileApp
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new C971_MobileApp.MainPage());
         }
 
         protected override void OnStart()

@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace C971_MobileApp
@@ -15,9 +10,9 @@ namespace C971_MobileApp
             InitializeComponent();
         }
 
-        private void NewCourseHandler(Object sender, EventArgs e)
+        private async void NewCourseHandler(Object sender, EventArgs e)
         {
-           App.Current.MainPage = new CoursePage_Editor();
+            await Navigation.PushAsync(new CoursePage_Editor());
         }
 
 
