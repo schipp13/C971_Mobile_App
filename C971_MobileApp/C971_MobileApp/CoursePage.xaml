@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:C971_MobileApp"
+             x:Class="C971_MobileApp.CoursePage">
+
+    <ContentPage.BindingContext>
+        <local:CourseViewModel/>
+    </ContentPage.BindingContext>
+    
+    <StackLayout>
+        <Label x:Name="CourseName"
+               Text="{Binding Course.courseName}"
+               FontSize="Large"
+         />
+        <!-- Add a StackLayout here? -->
+        <Label x:Name="Term"
+               Text="{Binding Term.TermName}"
+               FontSize="Small"
+               HorizontalOptions="End"
+               VerticalOptions="Center"
+         />
+        <Label x:Name="TermDate"
+               Text="{Binding Term.TermDate}"
+               FontSize="Small"
+               HorizontalOptions="End"
+               VerticalOptions="Center"
+         />
+        <FlexLayout JustifyContent="SpaceBetween"
+                    AlignItems="Center">
+            <Label x:Name="CourseDate"
+                   Text="{Binding Course.courseDate}"
+                   FontSize="Medium"
+            />
+            <Label x:Name="CourseStatus"
+                   Text="{Binding Course.courseStatus}"
+                   FontSize="Medium"
+            />
+        </FlexLayout>
+        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
+        <StackLayout>
+            <Label x:Name="CourseInstructorName"
+                   Text="{Binding Instructor.InstructorName}"
+                   FontSize="Medium"
+            />
+            <Label x:Name="CourseInstructorEmail"
+                   Text="{Binding Instructor.InstructorEmail}"
+                   FontSize="Medium"
+            />
+            <Label x:Name="CouseInstructorPhone"
+                   Text="{Binding Instructor.InstructorPhone}"
+                   FontSize="Medium"
+            />
+        </StackLayout>
+
+        <StackLayout Padding="5,15">
+            <Label x:Name="CourseDescription"
+                   Text="{Binding Course.courseDescription}"
+                   FontSize="Small"
+            />
+        </StackLayout>
+        <!--      Clicked="NavigateToAssessments" -->
+        <Button x:Name="AssessmentsButton"
+                 Text="Assessments"
+            
+         />
+    </StackLayout>
+    
+</ContentPage>
