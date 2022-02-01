@@ -57,8 +57,7 @@
                                            FontSize="Large"
                                            WidthRequest="320"/>
                                     <CheckBox x:Name="checkBox"
-                                              IsChecked="{Binding Course_IsChecked}"
-                                              CheckedChanged="OnCheckedChanged"
+                                              IsChecked="{Binding Course_IsChecked}"                                             
                                     />
                                 </FlexLayout>
                                 <Label Text="{Binding Course_Status}"
