@@ -42,7 +42,7 @@ namespace c971_MobileApplication.Views
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
             var course = (Course)BindingContext;
-            course.Course_Name = CourseName.Text;
+         // course.Course_Name = CourseName.Text;
             course.Course_Status = CourseStatus.SelectedItem.ToString();
             course.Course_Start = CourseStart.Date;
             course.Course_End = CourseEnd.Date;
@@ -54,7 +54,7 @@ namespace c971_MobileApplication.Views
             }
 
             // Navigate backwards
-            await Shell.Current.GoToAsync("..");
+           // await Shell.Current.GoToAsync("..");
         }
     }
 }
