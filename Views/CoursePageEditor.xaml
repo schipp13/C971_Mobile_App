@@ -5,38 +5,44 @@
              Title="Course Editor">
 
     <StackLayout Margin="10">
-        <Button x:Name="NextButton"
-                Text="Next"
+        <Button Text="Next"
                 HorizontalOptions="End"
-                Command="{Binding NavigateToAssessmentsCommand}"
+                Clicked="OnSaveButtonClicked"
         />
         <Entry x:Name="CourseName"
                Placeholder="CourseName"
+               Text="{Binding Course_Name}"
         />
         <FlexLayout JustifyContent="SpaceEvenly"
                     AlignItems="Center"
          >
-            <DatePicker x:Name="CourseStart" />
-            <DatePicker x:Name="CourseEnd" />
+            <DatePicker x:Name="CourseStart" 
+                        Date="{Binding Course_Start}"/>
+            <DatePicker x:Name="CourseEnd"
+                        Date="{Binding Course_End}"/>
         </FlexLayout>
 
         <Picker x:Name="CourseStatus"
-                Title="Course Status"/>
+                Title="{Binding Course_Status}"/>
 
         <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Black"/>
         
         <Entry x:Name="InstructorName"
-               Placeholder="Instructor Name"/>
+               Placeholder="Instructor Name"
+               Text="{Binding Instructor_Name}"/>
         <Entry x:Name="InstructorEmail"
-               Placeholder="Instructor Email"/>
+               Placeholder="Instructor Email"
+               Text="{Binding Instructor_Email }"/>
         <Entry x:Name="InstructorPhone"
                Placeholder="Instrictor Phone"
+               Text="{Binding Instructor_Phone }"
                />
         <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Black"/>
 
         <Editor x:Name="CourseDescription"
-                Placeholder="Description"
-                AutoSize="TextChanges"   
+                Placeholder="Enter a description"
+                Text="{Binding Course_Description}" 
+                HeightRequest="100"
          />
 
         <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Black"/>
@@ -48,7 +54,7 @@
 
         <Editor x:Name="CourseNotes"
                 Placeholder="Course Notes" 
-                AutoSize="TextChanges"   
+                HeightRequest="50"   
         />
         
         <ListView x:Name="NoteList">
@@ -56,7 +62,8 @@
                 <DataTemplate>
                     <ViewCell>
                         <Editor x:Name="CourseNotes"
-                                
+                                Placeholder="Bind for course notes"
+                                HeightRequest="50"
                         />
                     </ViewCell>
                 </DataTemplate>
