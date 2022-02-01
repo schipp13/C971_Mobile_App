@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Windows.Input;
 
 namespace LocalDatabaseTutorial.Views
 {
@@ -36,10 +37,18 @@ namespace LocalDatabaseTutorial.Views
                 await Shell.Current.GoToAsync($"{nameof(CourseEntryPage)}?{nameof(CourseEntryPage.ItemId)}={course.Course_Id.ToString()}");
             }
         }
+
+        async void OnCheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            // Update course where checkbox was checked
+            
+        }
         private async void AddCourseHandler(Object sender, EventArgs e)
         {
             await Navigation.PushAsync(new CourseEntryPage());
         }
 
+      
+        
     }
 }

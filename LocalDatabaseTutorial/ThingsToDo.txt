@@ -30,3 +30,12 @@ COURSE PAGE EDITOR
 
 ASSESSMENT PAGE EDITOR
 -Be able to add new assessments
+
+
+
+
+
+
+
+
+if checkbox is selected update course where IsChecked

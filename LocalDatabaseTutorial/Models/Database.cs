@@ -62,7 +62,7 @@ namespace LocalDatabaseTutorial.Models
             }
         }
 
-        public Task<int> DeleteNoteAsync(Course course)
+        public Task<int> DeleteCourseAsync(Course course)
         {
             // Delete a course.
 

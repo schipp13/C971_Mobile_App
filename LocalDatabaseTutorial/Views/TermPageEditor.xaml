@@ -25,7 +25,6 @@
             <DatePicker x:Name="TermDate"/>
         </StackLayout>
         <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
-
         <FlexLayout HorizontalOptions="End"
                     WidthRequest="115"
                     JustifyContent="SpaceEvenly">
@@ -40,7 +39,6 @@
                          Source="Delete_Icon.png"
             />
         </FlexLayout>
-
         <CollectionView x:Name="CourseItems"
                         SelectionMode="Single"
                         SelectionChanged="OnSelectionChanged">
@@ -58,8 +56,10 @@
                                            Text="{Binding Course_Name}"
                                            FontSize="Large"
                                            WidthRequest="320"/>
-                                    <CheckBox x:Name="CheckBox"
-                                              />
+                                    <CheckBox x:Name="checkBox"
+                                              IsChecked="{Binding Course_IsChecked}"
+                                              CheckedChanged="OnCheckedChanged"
+                                    />
                                 </FlexLayout>
                                 <Label Text="{Binding Course_Status}"
                                        FontSize="Small"
