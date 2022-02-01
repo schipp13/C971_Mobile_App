@@ -38,11 +38,12 @@ namespace LocalDatabaseTutorial.Views
             }
         }
 
-        async void OnCheckedChanged(object sender, CheckedChangedEventArgs e)
+        private async void DeleteCourseClicked(object sender, EventArgs args)
         {
-            // Update course where checkbox was checked
-            
+                // Deletes the selected course
+                 
         }
+   
         private async void AddCourseHandler(Object sender, EventArgs e)
         {
             await Navigation.PushAsync(new CourseEntryPage());
