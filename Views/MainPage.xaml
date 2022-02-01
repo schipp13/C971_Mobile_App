@@ -3,13 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="c971_MobileApplication.MainPage"
              Title="Term Page">
-
-    <!-- Add an item to the toolbar -->
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add"
-                     Clicked="OnAddClicked" />
-    </ContentPage.ToolbarItems>
-
+  
     <StackLayout Margin="10">
         <ImageButton x:Name="EditTermButton"
                      Source="Edit_Icon.png"
@@ -20,7 +14,7 @@
         
         <StackLayout >
             <Label x:Name="TermNameField"
-                   Text="C971 Mobile Application Development Using C#"
+                   Text="Term Name"
                    FontSize="Large"
                    Padding="10,0"
             />
@@ -44,20 +38,23 @@
                             <StackLayout BackgroundColor="LightGray"
                                          HorizontalOptions="FillAndExpand"                                        
                                      >
-                                <Label Text="{Binding Course_Name}"
-                                   FontSize="Large"
-                                   Padding="10,0"                                   
-                            />
-                                <Label Text="{Binding Course_Status}"
-                                   FontSize="Small"
-                                   HorizontalOptions="End"
-                                   VerticalOptions="Center"
-                                   Padding="10,0"                                   
-                            />
-                                <Label Text="{Binding Course_Date}"
-                                   FontSize="Small"
-                                   Padding="5,0"                                   
-                            />
+                                <Label x:Name="CourseName"
+                                       Text="{Binding Course_Name}"
+                                       FontSize="Large"
+                                       Padding="10,0"                                   
+                                />
+                                <Label 
+                                       Text="{Binding Course_Status}"
+                                       FontSize="Small"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="Center"
+                                       Padding="10,0"                                   
+                                />
+                                <Label 
+                                       Text="{Binding Course_Date}"
+                                       FontSize="Small"
+                                       Padding="5,0"                                   
+                                />
                             </StackLayout>
                         </Frame>                    
                 </DataTemplate>
