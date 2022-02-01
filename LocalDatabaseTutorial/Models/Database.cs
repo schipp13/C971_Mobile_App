@@ -13,9 +13,28 @@ namespace LocalDatabaseTutorial.Models
         {
             _database = new SQLiteAsyncConnection(dbpath);
             _database.CreateTableAsync<Course>().Wait();
+            _database.CreateTableAsync<Assessment>().Wait();
+            _database.CreateTableAsync<Instructor>().Wait();
+            _database.CreateTableAsync<Term>().Wait();  
         }
 
-        public Task<List<Course>> GetCoursesAsync()
+
+        public Task<Assessment> GetAssesmentAsync(int id)
+        {
+            // Geta specific course.
+            return _database.Table<Assessment>()
+                            .Where(i => i.Course_Id == id)
+                            .FirstOrDefaultAsync();
+        }
+
+        public Task<List<Assessment>> GetAssessmentsAsync()
+        {
+            // Get all courses.
+            return _database.Table<Assessment>().ToListAsync();
+
+        }
+
+            public Task<List<Course>> GetCoursesAsync()
         {
             // Get all courses.
             return _database.Table<Course>().ToListAsync();

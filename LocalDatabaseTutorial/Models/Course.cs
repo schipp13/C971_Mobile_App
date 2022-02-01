@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Collections.ObjectModel;
 using SQLite;
 
 namespace LocalDatabaseTutorial.Models
@@ -17,7 +18,8 @@ namespace LocalDatabaseTutorial.Models
         public DateTime Course_End { get; set; }
         public string Course_Description { get; set; }
         public string Course_Notes { get; set; }
-        public int Assessment_Id { get; set; }
+        
+       /* public ObservableCollection<Assessment> AssessmentList { get; set; }*/
 
         public string Course_Date => ($"{Course_Start.ToString("M")} - {Course_End.ToString("M")}");
     }

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LocalDatabaseTutorial.Views.AssessmentPageEditor"
+             Title="Assessment Editor">
+    
+    
+    <StackLayout>
+        <Button x:Name="SaveButton"
+                Text="Save"
+                HorizontalOptions="End"
+                Padding="5,0"
+        />
+        <Label x:Name="CourseName"
+               Text="Course Name"
+               FontSize="Large"
+               Padding="5,0"
+        />
+        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Black"/>
+
+        <FlexLayout AlignContent="Center"
+                    JustifyContent="End">
+            <ImageButton x:Name="AddAssessment"
+                         Source="Add_Icon.png"
+                         Padding="5,0"
+            />
+            <ImageButton x:Name="DeleteAssessment"
+                         Source="Delete_Icon.png"
+                         Padding="5,0"
+            />
+        </FlexLayout>
+
+
+        <ScrollView Orientation="Horizontal">
+            <ListView x:Name="AssessmentItems" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="LightGray" Padding=" 5,0">
+                                <FlexLayout JustifyContent="SpaceBetween"
+                                            AlignItems="Center">
+                                    <Entry x:Name="AssessmentType"
+                                            Text="{Binding Assessment_Type}"                             
+                                     />
+                                    <CheckBox />
+                                </FlexLayout>
+                                <Entry x:Name="AssessmentName"
+                                       Placeholder="Assessment Name"
+                                       Text="{Binding Assessment_Name}"
+                                />
+                                <FlexLayout JustifyContent="SpaceEvenly">
+                                    <DatePicker x:Name="AssessmentStart"
+                                                Date="{Binding Assessment_Start}"
+                                />
+                                    <DatePicker x:Name="AssessmentEnd"
+                                                Date="{Binding Assessment_End}"/>
+                                </FlexLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+    </StackLayout>
+</ContentPage>

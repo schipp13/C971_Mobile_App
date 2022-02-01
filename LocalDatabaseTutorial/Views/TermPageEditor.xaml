@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LocalDatabaseTutorial.Views.TermPageEditor">
+    <StackLayout Margin="5">
+        <ImageButton x:Name="DeleteTermButton"
+                     Source="Delete_Icon.png"
+                     HorizontalOptions="End"
+        />
+        <FlexLayout>
+            <ScrollView>
+                <Button x:Name="TermTabs"
+                        Text="Add Term"
+                        FontSize="Small"
+                        BackgroundColor="LightGray"
+                />
+            </ScrollView>
+        </FlexLayout>
+
+        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
+        <StackLayout>
+            <Entry x:Name="TermNameField"
+                   Placeholder="Term Name"
+            />
+            <DatePicker x:Name="TermDate"/>
+        </StackLayout>
+        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
+
+        <FlexLayout HorizontalOptions="End"
+                    WidthRequest="115"
+                    JustifyContent="SpaceEvenly">
+            <ImageButton x:Name="AddCourseButton"
+                         Source="Add_Icon.png"
+                         Clicked="AddCourseHandler"
+            />
+            <ImageButton x:Name="EditCourseButton"
+                         Source="Edit_Icon.png"
+            />
+            <ImageButton x:Name="DeleteCourseButton"
+                         Source="Delete_Icon.png"
+            />
+        </FlexLayout>
+
+        <CollectionView x:Name="CourseItems"
+                        SelectionMode="Single"
+                        SelectionChanged="OnSelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="5">
+                        <Frame BorderColor="Black"
+                               BackgroundColor="LightGray"
+                               Padding="2">
+                            <StackLayout>
+                                <FlexLayout JustifyContent="SpaceBetween"
+                                            AlignItems="Center"
+                                            Padding="5">
+                                    <Label x:Name="CourseName"
+                                           Text="{Binding Course_Name}"
+                                           FontSize="Large"
+                                           WidthRequest="320"/>
+                                    <CheckBox x:Name="CheckBox"
+                                              />
+                                </FlexLayout>
+                                <Label Text="{Binding Course_Status}"
+                                       FontSize="Small"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="Center"
+                                   Padding="10,0"/>
+                                <Label Text="{Binding Course_Date}"
+                                       FontSize="Small"
+                                       Padding="10,0"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </StackLayout>
+</ContentPage>
