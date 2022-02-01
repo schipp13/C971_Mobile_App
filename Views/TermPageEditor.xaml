@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:c971_MobileApplication.ViewModels"
+             x:Class="c971_MobileApplication.Views.TermPageEditor"
+             Title="Term Editor">
+
+    <ContentPage.BindingContext>
+        <local:TermViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Margin="10">
+        <ImageButton x:Name="DeleteTermButton"
+                     Source="Delete_Icon.png"
+                     HorizontalOptions="End"
+        />
+        <FlexLayout>
+            <ScrollView>
+                <Button x:Name="TermTabs"
+                        Text="Add Term"
+                        FontSize="Small"
+                        BackgroundColor="LightGray"
+                />
+            </ScrollView>
+        </FlexLayout>
+
+        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
+        <StackLayout>
+            <Entry x:Name="TermNameField"
+                   Placeholder="Term Name"
+            />
+            <DatePicker x:Name="TermDate"/>
+        </StackLayout>
+        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
+        
+        <FlexLayout HorizontalOptions="End"
+                    WidthRequest="75"
+                    JustifyContent="SpaceEvenly">
+            <ImageButton x:Name="AddCourseButton"
+                         Source="Add_Icon.png"
+                         Clicked="AddCourseHandler"
+            />
+            <ImageButton x:Name="EditCourseButton"
+                         Source="Edit_Icon.png"
+            />
+            <ImageButton x:Name="DeleteCourseButton"
+                         Source="Delete_Icon.png"
+            />
+        </FlexLayout>
+
+        <ListView x:Name="CourseItems" ItemsSource="{Binding Courses}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BorderColor="Black"
+                               Padding="1"
+                               Margin="5,10">
+                            <StackLayout BackgroundColor="LightGray">
+                                <FlexLayout JustifyContent="SpaceBetween"
+                                        AlignItems="Center"
+                                        Padding="10,5" >
+                                    <Label x:Name="{Binding Courses.Course_Name}"
+                                       Text="Test"
+                                       FontSize="Large"/>
+                                    <CheckBox x:Name="CheckBox"/>
+                                </FlexLayout>
+                                <Label x:Name="CourseStatus"
+                                   Text="Enrolled"
+                                   FontSize="Small"
+                                   HorizontalOptions="End"
+                                   VerticalOptions="Center"
+                                   Padding="10,0"/>
+                                <Label x:Name="CourseDate"
+                                   Text="Sample Date"
+                                   FontSize="Small"
+                                   Padding="10,0"/>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+
+</ContentPage>

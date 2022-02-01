@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"           
+             x:Class="c971_MobileApplication.Views.CoursePageEditor"
+             Title="Course Editor">
+
+    <StackLayout Margin="10">
+        <Button x:Name="NextButton"
+                Text="Next"
+                HorizontalOptions="End"
+                Command="{Binding NavigateToAssessmentsCommand}"
+        />
+        <Entry x:Name="CourseName"
+               Placeholder="CourseName"
+        />
+        <FlexLayout JustifyContent="SpaceEvenly"
+                    AlignItems="Center"
+         >
+            <DatePicker x:Name="CourseStart" />
+            <DatePicker x:Name="CourseEnd" />
+        </FlexLayout>
+
+        <Picker x:Name="CourseStatus"
+                Title="Course Status"/>
+
+        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Black"/>
+        
+        <Entry x:Name="InstructorName"
+               Placeholder="Instructor Name"/>
+        <Entry x:Name="InstructorEmail"
+               Placeholder="Instructor Email"/>
+        <Entry x:Name="InstructorPhone"
+               Placeholder="Instrictor Phone"
+               />
+        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Black"/>
+
+        <Editor x:Name="CourseDescription"
+                Placeholder="Description"
+                AutoSize="TextChanges"   
+         />
+
+        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Black"/>
+
+        <ImageButton x:Name="AddNotesButton"
+                     Source="Add_Icon.png"
+                     HorizontalOptions="End"
+        />
+
+        <Editor x:Name="CourseNotes"
+                Placeholder="Course Notes" 
+                AutoSize="TextChanges"   
+        />
+        
+        <ListView x:Name="NoteList">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Editor x:Name="CourseNotes"
+                                
+                        />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>            
+        </ListView>
+        
+        <Button x:Name="Share"
+                Text="Share"        
+                HorizontalOptions="End"
+        />
+    </StackLayout> 
+</ContentPage>

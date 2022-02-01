@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:c971_MobileApplication.ViewModels"
+             x:Class="c971_MobileApplication.Views.AssessmentPageEditor"
+             Title="Assessment Editor">
+
+    <ContentPage.BindingContext>
+        <local:AssessmentViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Button x:Name="SaveButton"
+                Text="Save"
+                HorizontalOptions="End"
+                Padding="5,0"
+                Command="{Binding SaveChangesCommand}"
+        />
+        <Label x:Name="CourseName"
+               Text="Course Name"
+               FontSize="Large"
+               Padding="5,0"
+        />
+        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Black"/>
+
+        <FlexLayout AlignContent="Center"
+                    JustifyContent="End">
+            <ImageButton x:Name="AddAssessment"
+                         Source="Add_Icon.png"
+                         Padding="5,0"
+            />
+            <ImageButton x:Name="DeleteAssessment"
+                         Source="Delete_Icon.png"
+                         Padding="5,0"
+            />
+        </FlexLayout>
+
+  
+        <ScrollView Orientation="Horizontal">
+        <ListView x:Name="AssessmentItems" ItemsSource="{Binding assessment}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                            <StackLayout BackgroundColor="LightGray" Padding=" 5,0">
+                                <FlexLayout JustifyContent="SpaceBetween"
+                                            AlignItems="Center">
+                                    <Picker x:Name="AssessmentType"
+                                            Title="Assessment Type"                             
+                    />
+                                    <CheckBox />
+                                </FlexLayout>
+                                <Entry x:Name="AssessmentName"
+                                       Placeholder="Assessment Name"
+                                />
+                                <FlexLayout JustifyContent="SpaceEvenly">
+                                    <DatePicker x:Name="AssessmentStart" 
+                                />
+                                    <DatePicker x:Name="AssessmentEnd" />
+                                </FlexLayout>
+                            </StackLayout>
+                        </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        </ScrollView>
+
+    </StackLayout>
+</ContentPage>

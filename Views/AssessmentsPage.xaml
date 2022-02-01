@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:c971_MobileApplication.ViewModels"
+             x:Class="c971_MobileApplication.Views.AssessmentsPage"
+             Title="Assessments">
+
+
+    <ContentPage.BindingContext>
+        <local:AssessmentViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Margin="10">
+        <Label x:Name="CourseName"
+               Text="C971 Mobile Application Development Using C#"
+               FontSize="Large"
+         />
+        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Black"/>
+        <StackLayout Margin="10,25">
+            <Frame BorderColor="Black"
+                   Padding="1">
+                <FlexLayout JustifyContent="SpaceEvenly"
+                            BackgroundColor="LightGray"
+                >
+                    <Label x:Name="AssessmentType"
+                           Text="O"
+                           FontSize="Large"
+                    />
+                    <Label x:Name="AssessmentName"
+                           Text="Assessment Name"
+                           FontSize="Large"
+                    />
+                    <Label x:Name="AssessmentDate"
+                           Text="Due Date"                   
+                    />
+                </FlexLayout>
+            </Frame>
+            <Frame BorderColor="Black"
+                   Padding="1">
+                <FlexLayout JustifyContent="SpaceEvenly"
+                            BackgroundColor="LightGray"
+                >
+                    <Label x:Name="AssessmentTypeP"
+                           Text="P"
+                           FontSize="Large"
+                    />
+                    <Label x:Name="AssessmentNameP"
+                           Text="Assessment Name"
+                           FontSize="Large"
+                    />
+                    <Label x:Name="AssessmentDateP"
+                           Text="Due Date"
+                    />
+                </FlexLayout>
+            </Frame>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
