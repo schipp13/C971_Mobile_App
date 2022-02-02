@@ -1,0 +1,48 @@
+﻿TODO:
+
+TERM PAGE :
+-Term information needs to be displayed on the main page: Ready to be tested
+-All courses need to be gathered based on the current term: Search courses based on termId
+
+
+
+COURE PAGE :
+-Assessments button navigates to Assessments Page: Ready to be tested
+-Have instructor information display on a selected course: Search instructor based on courseId
+
+
+
+ASSESSMENTS PAGE :
+-The current selected course needs to be displayed at the top: Ready to be tested
+-Assessments Page needs to display associated assessments for the course: Ready to be tested
+
+
+TERM PAGE EDITOR :
+-title needs to be added: Completed
+-add term button needs to be able to create a new term and display all of the previous terms in
+a horizontal list: Ready to be tested 
+-edit selected courses: Ready to be tested
+
+
+
+COURSE PAGE EDITOR :
+-Dates need to be set to the current date: Ready to be tested
+-store instructor information:  Ready to test
+-Add notes button needs to create a new note: 
+-Be able to add notes:  
+-Share button needs to share the note that was created: 
+-Next button needs to go to the assessments page editor: Ready to be tested
+
+
+
+
+ASSESSMENT PAGE EDITOR : 
+-Be able to add new assessments: Ready to be tested
+
+
+
+ADDITIONAL FUNCTIONS :
+-Notification functionality needs to be added
+
+
+
