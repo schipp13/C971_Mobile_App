@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LocalDatabaseTutorial.Views.AssessmentsPage"
+             Title="Assessments">
+
+    <!-- Delete text if name appears correctly -->
+    <StackLayout Margin="10">
+        <Label x:Name="CourseName"
+               Text="{Binding Course_Name}"
+               FontSize="Large"
+         />
+        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Black"/>
+        <StackLayout Margin="10,25">
+
+            <CollectionView x:Name="AssessmentItems">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame BorderColor="Black"
+                                   Padding="1">
+                                <FlexLayout JustifyContent="SpaceEvenly"
+                                            BackgroundColor="LightGray"
+                                >
+                                  <Label x:Name="AssessmentType"
+                                         Text="{Binding Assessment_Type}"
+                                         FontSize="Large"
+                                  />
+                                    <Label x:Name="AssessmentName"
+                                           Text="{Binding Assessment_Name}"
+                                           FontSize="Large"
+                                    />
+                                    <Label x:Name="AssessmentDate"
+                                        Text="{Binding Assessment_Date}"
+                                        FontSize="Small"
+                                    />
+                                </FlexLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
