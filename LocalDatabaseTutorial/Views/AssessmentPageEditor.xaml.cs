@@ -1,14 +1,13 @@
 ﻿using System;
+using c971_MobileApplication.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LocalDatabaseTutorial.Models;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace LocalDatabaseTutorial.Views
+namespace c971_MobileApplication.Views
 {
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public partial class AssessmentPageEditor : ContentPage
@@ -44,7 +43,7 @@ namespace LocalDatabaseTutorial.Views
             try
             {
                 int id = Convert.ToInt32(itemId);
-                
+
                 // Retrieve the assessment and set it as the BindingContext of the page.
                 Assessment assessment = await App.Database.GetAssesmentAsync(id);
                 BindingContext = assessment;
@@ -55,6 +54,5 @@ namespace LocalDatabaseTutorial.Views
                 Console.WriteLine("Failed to load assessment.");
             }
         }
-
     }
 }

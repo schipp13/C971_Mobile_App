@@ -1,12 +1,13 @@
 ﻿using System;
 using c971_MobileApplication.Models;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 
 namespace c971_MobileApplication.Views
 {
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
-    public partial class CoursePage : ContentPage
+    public partial class CoursePageEditor : ContentPage
     {
         public string ItemId
         {
@@ -15,7 +16,7 @@ namespace c971_MobileApplication.Views
                 LoadCourse(value);
             }
         }
-        public CoursePage()
+        public CoursePageEditor()
         {
             InitializeComponent();
 
@@ -31,17 +32,29 @@ namespace c971_MobileApplication.Views
                 // Retrieve the course and set it as the BindingContext of the page.
                 Course course = await App.Database.GetCourseAsync(id);
                 BindingContext = course;
-
             }
             catch (Exception)
             {
                 Console.WriteLine("Failed to load course.");
             }
-        }              
+        }
 
-        /*private async void NavigateHandler(Object sender, EventArgs e)
+        async void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new AssessmentsPage());
-        }*/
+            var course = (Course)BindingContext;
+            course.Course_Name = CourseName.Text;
+            course.Course_Status = CourseStatus.Text;
+            course.Course_Start = CourseStart.Date;
+            course.Course_End = CourseEnd.Date;
+            course.Course_Description = CourseDescription.Text;
+
+            if (!string.IsNullOrWhiteSpace(course.Course_Name))
+            {
+                await App.Database.SaveCourseAsync(course);
+            }
+
+            // Navigate backwards
+            await Shell.Current.GoToAsync($"{nameof(AssessmentPageEditor)}?{nameof(AssessmentPageEditor.ItemId)}={course.Course_Id.ToString()}");
+        }
     }
 }

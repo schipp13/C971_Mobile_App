@@ -1,10 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LocalDatabaseTutorial.Views.MainPage"
+             x:Class="c971_MobileApplication.Views.MainPage"
              Title="School of Smee">
 
-    
     <StackLayout Margin="10">
         <ImageButton x:Name="EditTermButton"
                      Source="Edit_Icon.png"
@@ -12,7 +11,7 @@
                      Clicked="EditTermHandler" />
 
         <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
-
+        
         <StackLayout >
             <Label x:Name="TermNameField"
                    Text="Term Name"
@@ -24,7 +23,7 @@
                    Padding="10,0"
             />
         </StackLayout>
-
+        
         <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Black"/>
 
         <!-- Make the Course box clickable -->
@@ -34,30 +33,28 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Padding="5">
-                    <Frame BorderColor="Black"
+                        <Frame BorderColor="Black"
                                Padding="1"
-                               Margin="3">
-                        <StackLayout BackgroundColor="LightGray"            
+                               Margin="3" >
+                            <StackLayout BackgroundColor="LightGray"                                   
                                      >
-                            <Label x:Name="CourseName"
+                                <Label x:Name="CourseName"
                                        Text="{Binding Course_Name}"
                                        FontSize="Large"
                                        Padding="10,0"                                   
-                                />
-                            <Label 
-                                       Text="{Binding Course_Status}"
-                                       FontSize="Small"
-                                       HorizontalOptions="End"
-                                       VerticalOptions="Center"
-                                       Padding="10,0"                                   
-                                />
-                            <Label 
-                                       Text="{Binding Course_Date}"
-                                       FontSize="Small"
-                                       Padding="5,0"                                   
-                                />
-                        </StackLayout>
-                    </Frame>
+                            />
+                                <Label Text="{Binding Course_Status}"
+                                   FontSize="Small"
+                                   HorizontalOptions="End"
+                                   VerticalOptions="Center"
+                                   Padding="10,0"                                   
+                            />
+                                <Label Text="{Binding Course_Date}"
+                                   FontSize="Small"
+                                   Padding="5,0"                                   
+                            />
+                            </StackLayout>
+                        </Frame>
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

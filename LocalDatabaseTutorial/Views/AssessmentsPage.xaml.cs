@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace LocalDatabaseTutorial.Views
+namespace c971_MobileApplication.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AssessmentsPage : ContentPage

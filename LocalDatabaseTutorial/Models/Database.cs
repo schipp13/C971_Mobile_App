@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using SQLite;
 
 
-namespace LocalDatabaseTutorial.Models
+namespace  c971_MobileApplication.Models
 {
     public class Database
     {
@@ -15,13 +15,12 @@ namespace LocalDatabaseTutorial.Models
             _database.CreateTableAsync<Course>().Wait();
             _database.CreateTableAsync<Assessment>().Wait();
             _database.CreateTableAsync<Instructor>().Wait();
-            _database.CreateTableAsync<Term>().Wait();  
+            _database.CreateTableAsync<Term>().Wait();
         }
-
 
         public Task<Assessment> GetAssesmentAsync(int id)
         {
-            // Geta specific course.
+            // Get specific assessment.
             return _database.Table<Assessment>()
                             .Where(i => i.Course_Id == id)
                             .FirstOrDefaultAsync();
@@ -29,12 +28,11 @@ namespace LocalDatabaseTutorial.Models
 
         public Task<List<Assessment>> GetAssessmentsAsync()
         {
-            // Get all courses.
+            // Get all assessments.
             return _database.Table<Assessment>().ToListAsync();
 
         }
-
-            public Task<List<Course>> GetCoursesAsync()
+        public Task<List<Course>> GetCoursesAsync()
         {
             // Get all courses.
             return _database.Table<Course>().ToListAsync();

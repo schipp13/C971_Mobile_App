@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LocalDatabaseTutorial.Views.AssessmentPageEditor"
+             x:Class="c971_MobileApplication.Views.AssessmentPageEditor"
              Title="Assessment Editor">
-    
-    
+
     <StackLayout>
         <Button x:Name="SaveButton"
                 Text="Save"
@@ -30,18 +29,18 @@
             />
         </FlexLayout>
 
-
+  
         <ScrollView Orientation="Horizontal">
-            <ListView x:Name="AssessmentItems" HasUnevenRows="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
+        <ListView x:Name="AssessmentItems" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
                             <StackLayout BackgroundColor="LightGray" Padding=" 5,0">
                                 <FlexLayout JustifyContent="SpaceBetween"
                                             AlignItems="Center">
                                     <Entry x:Name="AssessmentType"
-                                            Text="{Binding Assessment_Type}"                             
-                                     />
+                                           Text="{Binding Assessment_Type}"
+                                    />
                                     <CheckBox />
                                 </FlexLayout>
                                 <Entry x:Name="AssessmentName"
@@ -51,15 +50,16 @@
                                 <FlexLayout JustifyContent="SpaceEvenly">
                                     <DatePicker x:Name="AssessmentStart"
                                                 Date="{Binding Assessment_Start}"
-                                />
+                                    />
                                     <DatePicker x:Name="AssessmentEnd"
-                                                Date="{Binding Assessment_End}"/>
+                                                 Date="{Binding Assessment_End}"
+                                    />
                                 </FlexLayout>
                             </StackLayout>
                         </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
         </ScrollView>
 
     </StackLayout>

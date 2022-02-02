@@ -1,6 +1,6 @@
-﻿using System;
-using LocalDatabaseTutorial.Views;
-using LocalDatabaseTutorial.Models;
+﻿using c971_MobileApplication.Views;
+using c971_MobileApplication.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace LocalDatabaseTutorial.Views
+namespace c971_MobileApplication.Views
 {
     public partial class MainPage : ContentPage
     {
         public MainPage()
         {
             InitializeComponent();
-
+          
         }
         protected override async void OnAppearing()
         {
@@ -26,13 +26,11 @@ namespace LocalDatabaseTutorial.Views
             CourseItems.ItemsSource = await App.Database.GetCoursesAsync();
         }
 
-        /*  
-           async void OnAddClicked(object sender, EventArgs e)
-           {
-               // Navigate to the NoteEntryPage.
-               await Shell.Current.GoToAsync(nameof(CoursePage));
-           }
-        */
+     /*   async void OnAddClicked(object sender, EventArgs e)
+        {
+            // Navigate to the NoteEntryPage.
+            await Shell.Current.GoToAsync(nameof(CoursePage));
+        }*/
 
         async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -43,10 +41,15 @@ namespace LocalDatabaseTutorial.Views
                 await Shell.Current.GoToAsync($"{nameof(CoursePage)}?{nameof(CoursePage.ItemId)}={course.Course_Id.ToString()}");
             }
         }
-        private async void EditTermHandler(Object sender, EventArgs e)
-        {
-            await Application.Current.MainPage.Navigation.PushAsync(new TermPageEditor());
-        }
-     
+         private async void EditTermHandler(Object sender, EventArgs e)
+         {
+             await Application.Current.MainPage.Navigation.PushAsync(new TermPageEditor());
+         }
+
+/*
+         private async void NavigateHandler(Object sender, EventArgs e)
+         {
+             await Application.Current.MainPage.Navigation.PushAsync(new CoursePage());
+         }*/
     }
 }
