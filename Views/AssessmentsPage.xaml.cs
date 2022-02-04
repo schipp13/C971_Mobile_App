@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LocalDatabaseTutorial.Models;
+using c971_MobileApplication.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace LocalDatabaseTutorial.Views
+namespace c971_MobileApplication.Views
 {
-    [QueryProperty(nameof(ItemId), nameof(ItemId))]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AssessmentsPage : ContentPage
-    { 
+    {
         public string ItemId
         {
             set
@@ -25,11 +25,11 @@ namespace LocalDatabaseTutorial.Views
             InitializeComponent();
 
             CourseName.Text = name;
-               
+
             // Set the BindingContext of the page to a new Course.
             BindingContext = new Assessment();
         }
-     
+
         async void LoadAssessments(string itemId)
         {
             try

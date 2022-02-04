@@ -1,14 +1,15 @@
-﻿using System;
-using LocalDatabaseTutorial.Views;
-using LocalDatabaseTutorial.Models;
+﻿using c971_MobileApplication.Views;
+using c971_MobileApplication.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Collections.ObjectModel;
 
-namespace LocalDatabaseTutorial.Views
+namespace c971_MobileApplication.Views
 {
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public partial class MainPage : ContentPage
@@ -26,8 +27,10 @@ namespace LocalDatabaseTutorial.Views
 
             // Set the BindingContext of the page to a new Term.
             BindingContext = new Term();
-        }
 
+            TermName.Text = "Select a Term";
+            TermDate.Text = $"{DateTime.Now.ToString("M")} - {DateTime.Now.ToString("M")}";
+        }
         async void LoadTerm(string itemId)
         {
             try
@@ -56,15 +59,25 @@ namespace LocalDatabaseTutorial.Views
             CourseItems.ItemsSource = await App.Database.GetCoursesAsync();
         }
 
-        async void OnTermSelectionChanged(object sender, SelectionChangedEventArgs e)
+
+         async void OnTermSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.CurrentSelection != null)
             {
                 // Navigate to another term, passing the ID as a query parameter.
                 Term term = (Term)e.CurrentSelection.FirstOrDefault();
-                await Shell.Current.GoToAsync($"{nameof(MainPage)}?{nameof(MainPage.ItemId)}={term.Term_Id.ToString()}");
+                TermName.Text = term.Term_Name;
+                TermDate.Text = term.Term_Date;
+
+                /*await Shell.Current.GoToAsync($"{nameof(MainPage)}?{nameof(MainPage.ItemId)}={term.Term_Id.ToString()}");*/
+
+                CourseItems.ItemsSource = await App.Database.GetAssociatedCourseAsync(term.Term_Id);
+
+                Console.WriteLine(term.Term_Id);
+
             }
         }
+         
         async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.CurrentSelection != null)
@@ -78,6 +91,11 @@ namespace LocalDatabaseTutorial.Views
         {
             await Application.Current.MainPage.Navigation.PushAsync(new TermPageEditor());
         }
-     
+
+        private  void LoadTermClick(object sender, EventArgs e)
+        {
+            Console.WriteLine("Term button clicked");
+            
+        }
     }
 }

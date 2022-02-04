@@ -1,8 +1,9 @@
 ﻿using System;
-using LocalDatabaseTutorial.Models;
+using c971_MobileApplication.Models;
 using Xamarin.Forms;
 
-namespace LocalDatabaseTutorial.Views
+
+namespace c971_MobileApplication.Views
 {
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public partial class CoursePage : ContentPage
@@ -44,10 +45,10 @@ namespace LocalDatabaseTutorial.Views
             string courseName = CourseName.Text;
             await Application.Current.MainPage.Navigation.PushAsync(new AssessmentsPage(courseName));
 
-           /* // Navigate to the CoursePage, passing the ID as a query parameter.
-            Course course = (Course)e.CurrentSelection.FirstOrDefault();
-            await Shell.Current.GoToAsync($"{nameof(CoursePage)}?{nameof(CoursePage.ItemId)}={course.Course_Id.ToString()}");
-*/
+            /* // Navigate to the CoursePage, passing the ID as a query parameter.
+             Course course = (Course)e.CurrentSelection.FirstOrDefault();
+             await Shell.Current.GoToAsync($"{nameof(CoursePage)}?{nameof(CoursePage.ItemId)}={course.Course_Id.ToString()}");
+ */
         }
 
     }

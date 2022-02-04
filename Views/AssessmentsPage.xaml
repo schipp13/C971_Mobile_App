@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LocalDatabaseTutorial.Views.AssessmentsPage"
+             xmlns:local="clr-namespace:c971_MobileApplication.ViewModels"
+             x:Class="c971_MobileApplication.Views.AssessmentsPage"
              Title="Assessments">
 
-    <!-- Delete text if name appears correctly -->
     <StackLayout Margin="10">
         <Label x:Name="CourseName"
                Text="{Binding Course_Name}"
@@ -12,7 +12,6 @@
          />
         <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Black"/>
         <StackLayout Margin="10,25">
-
             <CollectionView x:Name="AssessmentItems">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -22,7 +21,7 @@
                                 <FlexLayout JustifyContent="SpaceEvenly"
                                             BackgroundColor="LightGray"
                                 >
-                                  <Label x:Name="AssessmentType"
+                                    <Label x:Name="AssessmentType"
                                          Text="{Binding Assessment_Type}"
                                          FontSize="Large"
                                   />

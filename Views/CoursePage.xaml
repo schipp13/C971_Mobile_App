@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LocalDatabaseTutorial.Views.CoursePage"
+             x:Class="c971_MobileApplication.Views.CoursePage"
              Title="Course">
-    
+
     <StackLayout Margin="10">
         <Frame BorderColor="Black"
                    Padding="1">
@@ -14,19 +14,19 @@
                        FontSize="Large"
                        Padding="5,0"
                 />
-                <StackLayout HorizontalOptions="End"
+            <StackLayout HorizontalOptions="End"
                          VerticalOptions="Center"
             >
-                    <Label Text="{Binding Term_Name}"
+                <Label Text="{Binding Term_Name}"
                        FontSize="Small"
                        Padding="5,0"
                 />
-                    <Label Text="{Binding Term_Date}"
+                <Label Text="{Binding Term_Date}"
                        FontSize="Small"
                        WidthRequest="95"
                        Padding="5,0"
                 />
-                </StackLayout>
+            </StackLayout>
                 <FlexLayout JustifyContent="SpaceBetween"
                             AlignItems="Center">
                     <Label Text="{Binding Course_Date}"
@@ -38,7 +38,7 @@
                            Padding="25,0"
                     />
 
-                </FlexLayout>
+                </FlexLayout>            
             </StackLayout>
         </Frame>
         <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Black"/>
@@ -73,4 +73,5 @@
             </Frame>
         </StackLayout>
     </StackLayout>
+    
 </ContentPage>
