@@ -14,7 +14,7 @@ namespace c971_MobileApplication.Models
         public string Assessment_Type { get; set; }
         public DateTime Assessment_Start { get; set; }
         public DateTime Assessment_End { get; set; }
-
-      
+    
+        public string Assessment_DueDate => ($"{Assessment_Start.Date.ToString("M")} - {Assessment_End.Date.ToString("M")}");
     }
 }
