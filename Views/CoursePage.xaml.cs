@@ -28,9 +28,15 @@ namespace c971_MobileApplication.Views
             try
             {
                 int id = Convert.ToInt32(itemId);
+                
                 // Retrieve the course and set it as the BindingContext of the page.
                 Course course = await App.Database.GetCourseAsync(id);
                 BindingContext = course;
+                
+                // Retrieve the term
+                Term term = await App.Database.GetTermAsync(course.Term_Id);
+                // TODO: Set the term values for the page versus setting the BindingContext.
+                BindingContext = term;
 
             }
             catch (Exception)
