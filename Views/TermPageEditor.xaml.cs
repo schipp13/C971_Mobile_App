@@ -9,6 +9,10 @@ namespace c971_MobileApplication.Views
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public partial class TermPageEditor : ContentPage
     {
+         public ObservableCollection<Course> CourseList { get; set; }
+        // Term_Id Value
+          public int TermId;
+    
         public string ItemId
         {
             set
@@ -38,6 +42,7 @@ namespace c971_MobileApplication.Views
                 BindingContext = instructor;
 
                 // Retrieve the course and set it as the BindingContext of the page.
+                // TODO: Delete this because the courses will be selected when the Term is clicked.
                 Course course = await App.Database.GetCourseAsync(id);
                 BindingContext = course;
             }
@@ -58,9 +63,11 @@ namespace c971_MobileApplication.Views
 
             // Retrieve all the courses from the database, and set them as the
             // data source for the CollectionView.
-
+            
+            // TODO: Delete this line because when the term is clicked it will populate the coursee list.
             CourseItems.ItemsSource = await App.Database.GetCoursesAsync();
         }
+        
         async void OnSelectedItem(object sender, SelectionChangedEventArgs e)
         {
             if (e.CurrentSelection != null)
@@ -85,7 +92,7 @@ namespace c971_MobileApplication.Views
             await Application.Current.MainPage.Navigation.PopAsync();
 
         }
-
+        
         async void OnDeleteCourseButtonClick(object sender, EventArgs e)
         {
             ImageButton button = sender as ImageButton;
@@ -95,7 +102,9 @@ namespace c971_MobileApplication.Views
             await Application.Current.MainPage.Navigation.PopAsync();
 
         }
-
+    
+    // TODO: Pass the selected term_id to associate the course to the selected term.
+    // IF TermName field is empty then display an empty field error.
         private async void AddCourseHandler(Object sender, EventArgs e)
         {
             var term = (Term)BindingContext;
@@ -107,8 +116,7 @@ namespace c971_MobileApplication.Views
 
         // TODO: Get this to load a term with assocaited courses information
         void OnTermSelection(object sender, SelectionChangedEventArgs e)
-        {
-            
+        {            
             if (e.CurrentSelection != null)
             {
                 // Navigate to the TermPageEditor, passing the ID as a query parameter.
@@ -116,7 +124,17 @@ namespace c971_MobileApplication.Views
                 TermName.Text = term.Term_Name;
                 TermDateStart.Date = term.Term_Start;
                 TermDateEnd.Date = term.Term_End;
-
+                TermId = term.Term_Id;
+                
+                
+                // Get all courses where Term_Id == TermId
+                // Try swapping TermId for just term.Term_Id
+               // Method 1: 
+               //This.CourseList =  await App.Database.GetAssociatedCourseAsync(TermId);
+               // Method 2:
+               // this.Customers = new ObservableCollection<Customer> (App.Database.GetAssociatedCourseAsync(TermId));
+               // Additional Methods:
+               // List/Collection = Query results of Courses where Term_Id == TermId
             }
         }
 
