@@ -11,7 +11,9 @@ namespace c971_MobileApplication.Views
 {
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public partial class AssessmentPageEditor : ContentPage
-    {
+    {   
+        public int courseId;
+        
         public string ItemId
         {
             set
@@ -19,6 +21,7 @@ namespace c971_MobileApplication.Views
                 LoadAssessment(value);
             }
         }
+        
         protected override async void OnAppearing()
         {
             base.OnAppearing();
@@ -32,7 +35,7 @@ namespace c971_MobileApplication.Views
         public AssessmentPageEditor()
         {
             InitializeComponent();
-
+            
             BindingContext = new Course();
             // Retrieve the assessment and set it as the BindingContext of the page.
             BindingContext = new Assessment();
@@ -43,7 +46,7 @@ namespace c971_MobileApplication.Views
             try
             {
                 int id = Convert.ToInt32(itemId);
-
+                courseId = id;
                 // Retrieve the assessment and set it as the BindingContext of the page.
                 Assessment assessment = await App.Database.GetAssesmentAsync(id);
                 BindingContext = assessment;
@@ -58,6 +61,7 @@ namespace c971_MobileApplication.Views
         async void CreateAssessmentButtonClick(object sender, EventArgs e)
         {
             var assessment = (Assessment)BindingContext;
+            assessment.Course_Id = courseId;
             assessment.Assessment_Name = AssessmentName.Text;
             assessment.Assessment_Type = AssessmentType.Text;
             assessment.Assessment_Start = AssessmentStart.Date;
@@ -67,6 +71,9 @@ namespace c971_MobileApplication.Views
             {
                 await App.Database.SaveAssessmentAsync(assessment);
             }
+            
+           // TODO: Refresh the page after assessments are created 
+          await Application.Current.MainPage.Navigation.PopAsync();
 
             // Navigate To the assessments page editor
          /*await Shell.Current.GoToAsync($"{nameof(AssessmentPageEditor)}?{nameof(AssessmentPageEditor.ItemId)}={Assessment.Course_Id.ToString()}");*/
