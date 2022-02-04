@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using SQLite;
 
 
-namespace LocalDatabaseTutorial.Models
+namespace  c971_MobileApplication.Models
 {
     public class Database
     {
@@ -15,14 +15,13 @@ namespace LocalDatabaseTutorial.Models
             _database.CreateTableAsync<Course>().Wait();
             _database.CreateTableAsync<Assessment>().Wait();
             _database.CreateTableAsync<Instructor>().Wait();
-            _database.CreateTableAsync<Term>().Wait();  
+            _database.CreateTableAsync<Term>().Wait();
         }
 
-         public Task<List<Term>> GetTermsAsync()
+        public Task<List<Term>> GetTermsAsync()
         {
             // Get all Terms.
             return _database.Table<Term>().ToListAsync();
-
         }
         public Task<Term> GetTermAsync(int id)
         {
@@ -35,7 +34,6 @@ namespace LocalDatabaseTutorial.Models
         {
             // Get all courses.
             return _database.Table<Assessment>().ToListAsync();
-
         }
 
         public Task<Assessment> GetAssesmentAsync(int id)
@@ -45,7 +43,6 @@ namespace LocalDatabaseTutorial.Models
                             .Where(i => i.Course_Id == id)
                             .FirstOrDefaultAsync();
         }
-       
         public Task<List<Course>> GetCoursesAsync()
         {
             // Get all courses.
@@ -60,6 +57,22 @@ namespace LocalDatabaseTutorial.Models
                             .FirstOrDefaultAsync();
         }
 
+        public Task<List<Course>> GetAssociatedCourseAsync(int id)
+        {
+            return _database.Table<Course>()
+                            .Where(i => i.Term_Id != id)
+                            .ToListAsync();              
+
+        }
+
+        public Task<Term> GetTermId(string name)
+        {
+            // Return the term id
+            return _database.Table<Term>()
+                             .Where(i => i.Term_Name == name)
+                             .FirstOrDefaultAsync();
+        }
+
         public Task<Instructor> GetInstructorAsync(int id)
         {
             // Geta specific Instructor.
@@ -67,6 +80,7 @@ namespace LocalDatabaseTutorial.Models
                             .Where(i => i.Course_Id == id)
                             .FirstOrDefaultAsync();
         }
+
 
         public Task<int> SaveCourseAsync(Course course)
         {
@@ -95,7 +109,6 @@ namespace LocalDatabaseTutorial.Models
                 return _database.InsertAsync(instructor);
             }
         }
-
 
         public Task<int> SaveTermAsync(Term term)
         {
@@ -128,14 +141,20 @@ namespace LocalDatabaseTutorial.Models
         public Task<int> DeleteCourseAsync(Course course)
         {
             // Delete a course.
-
             return _database.DeleteAsync(course);
+        }
+
+        public Task<int> DeleteTermAsync(int id)
+        {
+            // Delete a course.
+            return _database.Table<Term>()
+                            .Where(i => i.Term_Id == id)
+                            .DeleteAsync();
         }
 
         public Task<int> DeleteAssessmentAsync(Assessment assessment)
         {
             // Delete a assessment.
-
             return _database.DeleteAsync(assessment);
         }
 

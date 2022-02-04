@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
 using Xamarin.Forms;
-using LocalDatabaseTutorial.Models;
-using LocalDatabaseTutorial.Views;
+using c971_MobileApplication.Models;
+using c971_MobileApplication.Views;
 
-namespace LocalDatabaseTutorial
+namespace c971_MobileApplication
 {
     public partial class App : Application
     {
@@ -15,9 +15,9 @@ namespace LocalDatabaseTutorial
         {
             get
             {
-                if(database == null)
+                if (database == null)
                 {
-                    database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "courses.db3"));
+                    database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Courses.db3"));
                 }
                 return database;
             }
@@ -26,6 +26,7 @@ namespace LocalDatabaseTutorial
         {
             InitializeComponent();
 
+            /*MainPage = new NavigationPage(new c971_MobileApplication.MainPage());*/
             MainPage = new AppShell();
         }
 

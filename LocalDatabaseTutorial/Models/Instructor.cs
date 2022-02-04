@@ -1,9 +1,9 @@
 ﻿using System;
+using SQLite;
 using System.Collections.Generic;
 using System.Text;
-using SQLite;
 
-namespace LocalDatabaseTutorial.Models
+namespace c971_MobileApplication.Models
 {
     public class Instructor
     {

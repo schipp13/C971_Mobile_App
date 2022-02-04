@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using SQLite;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text;
 
-namespace LocalDatabaseTutorial.Models
+namespace c971_MobileApplication.Models
 {
+    [Table("Terms")]
     public class Term
     {
         [PrimaryKey, AutoIncrement]
@@ -15,5 +16,6 @@ namespace LocalDatabaseTutorial.Models
         public DateTime Term_End { get; set; }
 
         public string Term_Date => ($"{Term_Start.ToString("M")} - {Term_End.ToString("M")}");
+
     }
 }

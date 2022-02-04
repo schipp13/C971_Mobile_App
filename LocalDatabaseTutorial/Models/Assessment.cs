@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using SQLite;
+using System.Collections.Generic;
 using System.Text;
 
-
-namespace LocalDatabaseTutorial.Models
+namespace c971_MobileApplication.Models
 {
     public class Assessment
     {
@@ -16,6 +15,6 @@ namespace LocalDatabaseTutorial.Models
         public DateTime Assessment_Start { get; set; }
         public DateTime Assessment_End { get; set; }
 
-
+      
     }
 }
