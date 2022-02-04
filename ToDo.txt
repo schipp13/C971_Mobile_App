@@ -2,10 +2,12 @@
 
 
 TERM PAGE EDITOR :
+-Add courses to a selected term: 
 
 TERM PAGE : Currently working 
--Term information needs to be displayed on the main page: Completed
--All courses need to be gathered based on the current term: 
+-Prevent a term from being added if the term name field is empty
+-All courses need to be gathered based on the current term selected: 
+-
 
 
 COURE PAGE :
