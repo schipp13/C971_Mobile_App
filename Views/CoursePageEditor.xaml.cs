@@ -38,8 +38,8 @@ namespace c971_MobileApplication.Views
                 int id = Convert.ToInt32(itemId);
 
                 // Retrieve the instructor and set it as the BindingContext of the page.
-                Instructor instructor = await App.Database.GetInstructorAsync(id);
-                BindingContext = instructor;
+                // Instructor instructor = await App.Database.GetInstructorAsync(id);
+                // BindingContext = instructor;
 
                 // Retrieve the course and set it as the BindingContext of the page.
                 Course course = await App.Database.GetCourseAsync(id);
