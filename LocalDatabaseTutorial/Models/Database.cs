@@ -64,7 +64,7 @@ namespace  c971_MobileApplication.Models
                             .ToListAsync();              
 
         }
-
+    // Might be able to delete GetTermId
         public Task<Term> GetTermId(string name)
         {
             // Return the term id
