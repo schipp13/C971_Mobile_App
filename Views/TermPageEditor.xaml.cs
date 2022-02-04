@@ -43,8 +43,8 @@ namespace c971_MobileApplication.Views
 
                 // Retrieve the course and set it as the BindingContext of the page.
                 // TODO: Delete this because the courses will be selected when the Term is clicked.
-                Course course = await App.Database.GetCourseAsync(id);
-                BindingContext = course;
+                // Course course = await App.Database.GetCourseAsync(id);
+                // BindingContext = course;
             }
             catch (Exception)
             {
