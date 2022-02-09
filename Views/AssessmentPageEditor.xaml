@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="c971_MobileApplication.Views.AssessmentPageEditor"
+             Title="Assessment Editor">
+
+    <StackLayout>
+        <Button Text="Save"
+                HorizontalOptions="End"
+                Clicked="OnSaveButtonClicked"
+        />
+        <Label x:Name="CourseName"
+               Text="{Binding Course_Name}"
+               FontSize="Large"
+               Padding="5,0"
+        />
+        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Black"/>
+
+        <FlexLayout AlignContent="Center"
+                    JustifyContent="End">
+            <ImageButton x:Name="AddAssessment"
+                         Source="Add_Icon.png"
+                         Padding="5,0" 
+                         Clicked="CreateAssessmentButtonClick"
+            />
+          
+        </FlexLayout>
+
+        <StackLayout BackgroundColor="LightGray" Padding=" 5,0">
+            <FlexLayout JustifyContent="SpaceBetween"
+                        AlignItems="Center">
+                <Entry x:Name="AssessmentType"    
+                       MaxLength="1"
+                       Text="{Binding Assessment_Type}" />               
+            </FlexLayout>
+            <Entry x:Name="AssessmentName"
+                       Placeholder="Assessment Name"
+                       Text="{Binding Assessment_Name}"
+                                />
+            <FlexLayout JustifyContent="SpaceEvenly">
+                
+                <DatePicker x:Name="AssessmentStart"
+                            Date="{Binding Assessment_Start}"
+                                />
+                <DatePicker x:Name="AssessmentEnd"
+                            Date="{Binding Assessment_End}"/>
+            </FlexLayout>
+        </StackLayout>
+
+        <CollectionView x:Name="AssessmentItems">
+            
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"/>
+            </CollectionView.ItemsLayout>
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10,10"
+                                 WidthRequest="350">
+                        <Frame BorderColor="Black"
+                                   Padding="1">
+                            <FlexLayout BackgroundColor="LightGray"                                     
+                                        JustifyContent="SpaceEvenly"
+                                        AlignItems="Center">
+                                
+                                <Label x:Name="AssessmentType"                                          
+                                         Text="{Binding Assessment_Type}"
+                                         FontSize="Large"
+                                  />
+                                <Label x:Name="AssessmentName"                                        
+                                           Text="{Binding Assessment_Name}"
+                                           FontSize="Large"
+                                    />
+                                <Label x:Name="AssessmentDate"                                     
+                                        Text="{Binding Assessment_DueDate}"
+                                        FontSize="Small"
+                                    />
+                                <ImageButton x:Name="DeleteAssessment"                                             
+                                         Source="Delete_Icon.png"
+                                         Clicked="OnDeleteAssessmentClicked" />
+                            </FlexLayout>
+                        </Frame>
+                    </StackLayout>
+                    
+                    
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </StackLayout>
+</ContentPage>
